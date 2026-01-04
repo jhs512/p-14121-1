@@ -1,4 +1,11 @@
 services:
+  elasticsearch:
+    image: elasticsearch:9.2.3
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
   redpanda:
     image: docker.redpanda.com/redpandadata/redpanda:latest
     command:

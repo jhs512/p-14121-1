@@ -38,6 +38,9 @@ spring:
 logging:
   level:
     com.back: DEBUG
+    org.springframework.data.elasticsearch.core: DEBUG
+    tracer: TRACE
+    org.elasticsearch.client.RestClient: DEBUG
     org.hibernate.orm.jdbc.bind: TRACE
     org.hibernate.orm.jdbc.extract: TRACE
     org.springframework.transaction.interceptor: TRACE
