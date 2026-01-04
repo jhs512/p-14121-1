@@ -26,4 +26,8 @@ public class PostSupport {
     public Optional<PostMember> findMemberByUsername(String username) {
         return postMemberRepository.findByUsername(username);
     }
+
+    public long membersCount() {
+        return postMemberRepository.count();
+    }
 }

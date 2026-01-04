@@ -4,6 +4,7 @@ import com.back.boundedContext.post.app.PostFacade;
 import com.back.boundedContext.post.domain.Post;
 import com.back.boundedContext.post.domain.PostMember;
 import com.back.global.rsData.RsData;
+import com.back.standard.util.Ut;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
@@ -30,6 +31,7 @@ public class PostDataInit {
     @Order(2)
     public ApplicationRunner postDataInitApplicationRunner() {
         return args -> {
+            Ut.thread.waitUntil(() -> postFacade.membersCount() >= 6);
             self.makeBasePosts();
             self.makeBasePostComments();
         };

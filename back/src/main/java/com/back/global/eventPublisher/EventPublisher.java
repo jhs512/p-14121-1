@@ -1,15 +1,16 @@
 package com.back.global.eventPublisher;
 
+import com.back.standard.modelType.HasEventName;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class EventPublisher {
-    private final ApplicationEventPublisher applicationEventPublisher;
+    private final KafkaTemplate<String, HasEventName> kafkaTemplate;
 
-    public void publish(Object event) {
-        applicationEventPublisher.publishEvent(event);
+    public void publish(HasEventName event) {
+        kafkaTemplate.send(event.getEventName(), event);
     }
 }

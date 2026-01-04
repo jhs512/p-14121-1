@@ -41,4 +41,8 @@ public class PostFacade {
     public Optional<PostMember> findMemberByUsername(String username) {
         return postSupport.findMemberByUsername(username);
     }
+
+    public long membersCount() {
+        return postSupport.membersCount();
+    }
 }
